@@ -34,6 +34,7 @@
 |cost|integer|null: false|
 |FE|integer|null: false|
 |avrage_FE|integer|null: false|
+|refuelday|date|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |car_id|integer|null: false, foreign_key: true|
 |fueltype_id|integer|null: false, foreign_key: true|
