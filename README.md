@@ -1,24 +1,45 @@
-# README
+# README(個人アプリDB設計)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersデーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|index: true, null: false, unique: true|
+|email|string|null: false|
 
-Things you may want to cover:
+### Association
+- has_many :cars
+- has_many :infomations
 
-* Ruby version
+## carsテーブル
 
-* System dependencies
+|Column|Type|Options|
+|------|----|-------|
+|car_name|string|null: false|
+|image|string|
+|first_range|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
-* Configuration
 
-* Database creation
+### Association
+- has_many :infomation
+- belongs_to :user
 
-* Database initialization
 
-* How to run the test suite
+## infomationsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|refuel|integer|null: false|
+|ODO|integer|
+|TRIP|integer|null: false|
+|range|integer|null: false|
+|cost|integer|null: false|
+|FE|integer|null: false|
+|avrage_FE|integer|null: false|
+|fuel_type|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|car_id|integer|null: false, foreign_key: true|
 
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :car
+- belongs_to :user
