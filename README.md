@@ -19,11 +19,9 @@
 |first_range|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
-
 ### Association
 - has_many :infomation
 - belongs_to :user
-
 
 ## infomationsテーブル
 
@@ -36,10 +34,20 @@
 |cost|integer|null: false|
 |FE|integer|null: false|
 |avrage_FE|integer|null: false|
-|fuel_type|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |car_id|integer|null: false, foreign_key: true|
+|fueltype_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :car
 - belongs_to :user
+- belongs_to :car
+- belongs_to :fueltype
+
+## fueltypesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|fuelname|string|null: false|
+
+### Association
+- has_many :infomation
