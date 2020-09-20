@@ -29,7 +29,7 @@
 |------|----|-------|
 |refuel|integer|null: false|
 |ODO|integer|
-|TRIP|integer|null: false|
+|TRIP|integer|
 |range|integer|null: false|
 |cost|integer|null: false|
 |FE|integer|null: false|
