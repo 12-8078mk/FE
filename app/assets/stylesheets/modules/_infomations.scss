@@ -16,6 +16,7 @@
   }
   &-user {
     font-size: 30px;
+    text-align: center;
   }
   &-user_name {
     margin-bottom: 10px;
@@ -34,24 +35,34 @@
   margin-right:10px;
 }
 
-
-
-.main-page {
-  background-color: chartreuse;
+.wrapper {
+  display: flex;
+  
   height: calc( 100vh - 100px - 100px);
   // overflow: scroll;
   color: #000;
-  font-size: 20px;
+  font-size: 30px;
+}
+
+.mainmemu {
   padding: 20px;
+  width: 400px;
+  background-color: rgb(27, 221, 108);
+  &--foto {
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+  }
 }
 
-.main {
-  padding: 10px;
-}
-
-.foto {
-  width: 300px;
-  height: 200px;
+.maininfo {
+  padding: 20px;
+  width: calc(100vw - 400px);
+  background-color: chartreuse;
+  overflow: scroll;
+  &--scroll{
+    margin-top:40px;
+  }
 }
 
 .footer {
@@ -68,4 +79,9 @@
   border: 2px solid #000;
   padding: 20px 30px;
   background-color: rgba(255, 255, 255, 0.692);
+  &--link{
+    text-decoration: none;
+  }
+  
 }
+
