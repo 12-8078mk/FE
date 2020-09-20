@@ -1,0 +1,36 @@
+%body
+  .top
+    .top-app_name 燃費計算
+    .top-user
+      .top-user_name
+        = current_user.name
+      .top-car_name Z250SL
+    .top-edit__btn
+      / <haml_loud> link_to &#39;Edit&#39;, &#39;#&#39; </haml_loud> .erbでないと動かない
+      = link_to edit_user_path(current_user) do
+        Edit
+  .main-page
+    .main
+      -# =image_tag  "",foto ,alt: "サンプル画像です", 
+    .main-firstrange 初期走行距離:
+    .main-ODO ODO:
+    .main-totalrange 総走行距離:
+    .main-totalrefuel 総給油量:
+    .main-totalFuelfee 総給油費:
+    .main-avgFueleconomy 平均燃費:
+    .main-dayFueleconomy 直近燃費:
+    .main-maxFueleconomy 最高燃費:
+    .main-minFueleconomy 最低燃費:
+  .footer
+    .btn
+      = link_to "#" ,class: "rireki" do
+        履歴
+    .btn
+      = link_to "#" ,class: "graf" do
+        グラフ
+    .btn
+      = link_to "#" ,class: "di" do
+        詳細
+    .btn
+      = link_to "#" ,class: "input" do
+        入力
