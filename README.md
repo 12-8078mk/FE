@@ -33,7 +33,7 @@
 |range|integer|null: false|
 |cost|integer|null: false|
 |FE|integer|null: false|
-|avrage_FE|integer|null: false|
+|avrage_FE|integer|
 |refuelday|date|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |car_id|integer|null: false, foreign_key: true|
