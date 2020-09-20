@@ -1,3 +1,72 @@
 * {
   box-sizing: border-box;
 }
+
+.top {
+  color: #000;
+  height: 100px;
+  background-color: aqua;
+  display: flex;
+  width: 100%;
+  padding: 0 30px;
+  align-items: center;
+  justify-content: space-between;
+  &-app_name {
+    font-size: 40px;
+  }
+  &-user {
+    font-size: 30px;
+  }
+  &-user_name {
+    margin-bottom: 10px;
+  }
+  
+  &-edit {
+    font-size: 20px;
+    &__btn {
+      border: 1px solid #000;
+      padding: 20px;
+      background-color: white;
+    }
+  }
+  
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.main-page {
+  background-color: chartreuse;
+  height: calc( 100vh - 100px - 100px);
+  // overflow: scroll;
+  color: #000;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.main {
+  padding: 10px;
+}
+
+.foto {
+  width: 300px;
+  height: 200px;
+}
+
+.footer {
+  height: 100px;
+  background-color: aquamarine;
+  color: black;
+  display: flex;
+  padding: 0 30px;
+  justify-content: space-between;
+  font-size: 20px;
+  align-items: center;
+}
+.btn {
+  border: 2px solid #000;
+  padding: 20px 30px;
+  background-color: white;
+}
