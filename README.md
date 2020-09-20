@@ -1,24 +1,54 @@
-# README
+# README(個人アプリDB設計)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersデーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|index: true, null: false, unique: true|
+|email|string|null: false|
 
-Things you may want to cover:
+### Association
+- has_many :cars
+- has_many :infomations
 
-* Ruby version
+## carsテーブル
 
-* System dependencies
+|Column|Type|Options|
+|------|----|-------|
+|car_name|string|null: false|
+|image|string|
+|first_range|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
-* Configuration
+### Association
+- has_many :infomation
+- belongs_to :user
 
-* Database creation
+## infomationsテーブル
 
-* Database initialization
+|Column|Type|Options|
+|------|----|-------|
+|refuel|integer|null: false|
+|ODO|integer|
+|TRIP|integer|
+|range|integer|null: false|
+|cost|integer|null: false|
+|FE|integer|null: false|
+|avrage_FE|integer|
+|refuelday|date|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|car_id|integer|null: false, foreign_key: true|
+|fueltype_id|integer|null: false, foreign_key: true|
 
-* How to run the test suite
+### Association
+- belongs_to :user
+- belongs_to :car
+- belongs_to :fueltype
 
-* Services (job queues, cache servers, search engines, etc.)
+## fueltypesテーブル
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|fuelname|string|null: false|
 
-* ...
+### Association
+- has_many :infomation
