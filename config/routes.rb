@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   # get 'infomations/index'
   root "infomations#index"
   resources :users, only: [:edit, :update]
-  resources :cars, only: [:new, :create]
+  resources :cars, only: [:new, :create, :edit, :update]
 end
