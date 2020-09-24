@@ -5,7 +5,7 @@ class CarsController < ApplicationController
   
   def new
     @car = Car.new
-    # @car.users << current_user
+    # @car << current_user.params[:id]
   end
 
   def create
@@ -32,6 +32,6 @@ class CarsController < ApplicationController
 
   private
   def car_params
-    params.require(:car).permit(:name, user_ids: [])
+    params.require(:car).permit(:car_name, user_ids: [])
   end
 end

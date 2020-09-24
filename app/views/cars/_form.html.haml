@@ -7,12 +7,12 @@
           %li= message
   .SettingGroupForm__field
     .SettingGroupForm__leftField
-      = f.label :car_name, "車両名", class: 'SettingGroupForm__label'
+      = f.label :car_name, "車両名：", class: 'SettingGroupForm__label'
     .SettingGroupForm__rightField
       = f.text_field :car_name, class: 'SettingGroupForm__input', placeholder: '車両名を入力してください'
   .SettingGroupForm__field
     .SettingGroupForm__leftField
-      %label.SettingGroupForm__label 初期走行距離
+      %label.SettingGroupForm__label 初期走行距離：
     .SettingGroupForm__rightField
       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
       = f.text_field :first_range, class: "SettingGroupForm__input", placeholder: "初期走行距離を入力してください。"
