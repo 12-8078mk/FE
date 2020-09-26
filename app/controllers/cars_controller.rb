@@ -5,7 +5,7 @@ class CarsController < ApplicationController
   
   def new
     @car = Car.new
-    # @car << current_user.params[:id]
+    # @car.users << current_user
   end
 
   def create
