@@ -5,7 +5,7 @@ class CarsController < ApplicationController
   
   def new
     @car = Car.new
-    # @car.users << current_user
+    @car.users << current_user
   end
 
   def create
