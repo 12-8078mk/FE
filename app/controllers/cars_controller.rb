@@ -32,6 +32,6 @@ class CarsController < ApplicationController
 
   private
   def car_params
-    params.require(:car).permit(:car_name, user_ids: [])
+    params.require(:car).permit(:car_name,:first_range , user_ids: [])
   end
 end

@@ -47,14 +47,17 @@
   padding: 20px;
   width: 400px;
   background-color: rgb(27, 221, 108);
-  &__memu {
-    &--foto {
-      padding: 10px;
-      width: 300px;
-      height: 200px;
-    }
+}
+
+.memu {
+  font-size: 20px;
+  &--foto {
+    padding: 10px;
+    width: 300px;
+    height: 200px;
   }
 }
+
 .maininfo {
   padding: 20px;
   width: calc(100vw - 400px);

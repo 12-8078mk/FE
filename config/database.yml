@@ -80,9 +80,9 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: 5
   database: FE_production
   username: FE
   password: <%= ENV['FE_DATABASE_PASSWORD'] %>
