@@ -1,11 +1,13 @@
 class CarsController < ApplicationController
   
   def index
+    # @cars = Car.all
+    # Car.find(current_user[:id])
   end
   
   def new
     @car = Car.new
-    @car.users << current_user
+    # @car.users << current_user
   end
 
   def create
@@ -32,6 +34,7 @@ class CarsController < ApplicationController
 
   private
   def car_params
-    params.require(:car).permit(:car_name,:first_range , user_ids: [])
+    params.require(:car).permit(:car_name,:first_range ).merge(user_id: current_user.id)
+    # , user_ids: []
   end
 end

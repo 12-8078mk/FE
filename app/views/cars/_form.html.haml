@@ -19,5 +19,6 @@
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
   .SettingGroupForm__field
     .SettingGroupForm__leftField
+    -# = f.collection_check_boxes :user_ids, User.all, :id, :name
     .SettingGroupForm__rightField
       = f.submit class: 'SettingGroupForm__button'

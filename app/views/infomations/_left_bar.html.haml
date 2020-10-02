@@ -1,19 +1,10 @@
 .main
   - current_user.cars.each do |car|
     .menu
-      .menu--carname
-        = link_to '#' do
+      = link_to '#' do
+        .menu__name
           = car.car_name
-      .memu--foto
-        a
-      .memu--firstrange
-        0
-  -# - current_user.cars.each do |car|
-  -#   .menu
-  -#     = link_to '#' do
-  -#       .menu--carname
-  -#         z
-  -#       .memu--foto
-  -#         a
-  -#       .memu--firstrange
-  -#         0
+        .menu__foto
+          = car.image
+        .menu__firstrange
+          = car.first_range
