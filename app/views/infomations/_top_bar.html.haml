@@ -3,7 +3,8 @@
   .top-user
     .top-user_name
       = current_user.name
-    .top-car_name Z250SL
+    .top-car_name
+      -# = current_user.car_name
   .top-edit
     = link_to edit_user_path(current_user),class: "top-edit__btn" do
       = icon('fas', 'cog', class: "top-edit__btn-icon e")

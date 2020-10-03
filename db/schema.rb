@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_040124) do
+ActiveRecord::Schema.define(version: 2020_10_03_040918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "car_users", force: :cascade do |t|
-    t.bigint "car_id"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["car_id"], name: "index_car_users_on_car_id"
-    t.index ["user_id"], name: "index_car_users_on_user_id"
-  end
 
   create_table "cars", force: :cascade do |t|
     t.string "car_name", null: false
@@ -32,6 +23,29 @@ ActiveRecord::Schema.define(version: 2020_09_27_040124) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "fueltypes", force: :cascade do |t|
+    t.string "fuelname", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "infomations", force: :cascade do |t|
+    t.integer "refuel", null: false
+    t.integer "ODO"
+    t.integer "TRIP"
+    t.integer "range", null: false
+    t.integer "cost", null: false
+    t.integer "FE"
+    t.integer "avrage_FE"
+    t.date "refuelday"
+    t.bigint "user_id"
+    t.bigint "car_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_id"], name: "index_infomations_on_car_id"
+    t.index ["user_id"], name: "index_infomations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_040124) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "car_users", "cars"
-  add_foreign_key "car_users", "users"
   add_foreign_key "cars", "users"
+  add_foreign_key "infomations", "cars"
+  add_foreign_key "infomations", "users"
 end
