@@ -19,6 +19,12 @@
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
   .SettingGroupForm__field
     .SettingGroupForm__leftField
-    -# = f.collection_check_boxes :user_ids, User.all, :id, :name
+      %label.SettingGroupForm__label 画像の添付：
+    .SettingGroupForm__rightField
+      = f.label :image, class: 'Form__inputImage' do
+        = icon('far', 'image', class: 'Form__icon')
+        = f.file_field :image, class: 'Hidden'
+  .SettingGroupForm__field
+    .SettingGroupForm__leftField
     .SettingGroupForm__rightField
       = f.submit class: 'SettingGroupForm__button'

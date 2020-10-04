@@ -1,10 +1,11 @@
 .main
   - current_user.cars.each do |car|
     .menu
-      = link_to '#' do
+      = link_to car_infomations_path(car.id) do
         .menu__name
           = car.car_name
         .menu__foto
           = car.image
         .menu__firstrange
-          = car.first_range
+          = link_to edit_car_path(car.id) do
+            編集
