@@ -4,8 +4,8 @@
       = link_to car_infomations_path(car.id) do
         .menu__name
           = car.car_name
-        .menu__foto
-          = car.image
+        = image_tag car.image.url, class: 'menu__foto' if car.image.present?
         .menu__firstrange
-          = link_to edit_car_path(car.id) do
-            編集
+          = car.first_range
+        = link_to edit_car_path(car.id) do
+          編集

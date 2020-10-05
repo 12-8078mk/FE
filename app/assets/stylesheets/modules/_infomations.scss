@@ -53,6 +53,10 @@
   color: #000;
   padding: 40px;
   text-decoration: none;
+  &__foto{
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .maininfo {
@@ -61,7 +65,12 @@
   background-color: chartreuse;
   overflow: scroll;
   &--scroll{
-    margin-top:40px;
+    margin-top:20px;
+    padding: 0 40px;
+    display: flex;
+    &__obj{
+      
+    }
   }
 }
 
