@@ -1,46 +1,43 @@
 .SettingGroupForm
   %h1 入力画面 
-  = form_with model: infomation, local: true do |f|
-    - if infomation.errors.any?
+  = form_with model: [@car, @infomation], local: true do |f|
+    - if @infomation.errors.any?
       .SettingGroupForm__errors
-        %h2= "#{infomation.errors.full_messages.count}件のエラーが発生しました。"
+        %h2= "#{@infomation.errors.full_messages.count}件のエラーが発生しました。"
         %ul
-          - infomation.errors.full_messages.each do |message|
+          - @infomation.errors.full_messages.each do |message|
             %li= message
-  .SettingGroupForm__field
-    .SettingGroupForm__leftField
-      %label.SettingGroupForm__label 給油日:
-    .SettingGroupForm__rightField
-      = f.text_field :refuelday, class: 'SettingGroupForm__input', placeholder: '給油日を入力してください'
-  .SettingGroupForm__field
-    .SettingGroupForm__leftField
-      %label.SettingGroupForm__label 給油量:
-    .SettingGroupForm__rightField
-      = f.text_field :refuel, class: 'SettingGroupForm__input', placeholder: '給油量を入力してください'
-  .SettingGroupForm__field
-    .SettingGroupForm__leftField
-      %label.SettingGroupForm__label 総走行距離（ODO）：
-    .SettingGroupForm__rightField
-      = f.text_field :ODO, class: "SettingGroupForm__input", placeholder: "総走行距離（ODO）を入力してください。"
-  .SettingGroupForm__field
-    .SettingGroupForm__leftField
-      %label.SettingGroupForm__label 走行距離（TRIP）：
-    .SettingGroupForm__rightField
-      = f.text_field :TRIP, class: "SettingGroupForm__input", placeholder: "走行距離（TRIP）を入力してください。"
-  .SettingGroupForm__field
-    .SettingGroupForm__leftField
-      %label.SettingGroupForm__label 金額：
-    .SettingGroupForm__rightField
-      = f.text_field :cost, class: "SettingGroupForm__input", placeholder: "金額を入力してください。"
-  .SettingGroupForm__field
-    .SettingGroupForm__leftField
-      %label.SettingGroupForm__label 油種：
-    .SettingGroupForm__rightField
-      = f.collection_check_boxes :fueltype_ids, Fueltype.all, :id, :fuelname
-  .SettingGroupForm__field
-    .SettingGroupForm__leftField
-      = f.label :image, class: 'Form__inputImage' do
-        = icon('far', 'image', class: 'Form__icon')
-        = f.file_field :image, class: 'Hidden'
-    .SettingGroupForm__rightField
-      = f.submit class: 'SettingGroupForm__button'
+    .SettingGroupForm__field
+      .SettingGroupForm__leftField
+        %label.SettingGroupForm__label 給油日:
+      .SettingGroupForm__rightField
+        = f.text_field :refuelday, class: 'SettingGroupForm__input', placeholder: '給油日を入力してください'
+    .SettingGroupForm__field
+      .SettingGroupForm__leftField
+        %label.SettingGroupForm__label 給油量:
+      .SettingGroupForm__rightField
+        = f.text_field :refuel, class: 'SettingGroupForm__input', placeholder: '給油量を入力してください'
+    .SettingGroupForm__field
+      .SettingGroupForm__leftField
+        %label.SettingGroupForm__label 総走行距離（ODO）：
+      .SettingGroupForm__rightField
+        = f.text_field :ODO, class: "SettingGroupForm__input", placeholder: "総走行距離（ODO）を入力してください。"
+    .SettingGroupForm__field
+      .SettingGroupForm__leftField
+        %label.SettingGroupForm__label 走行距離（TRIP）：
+      .SettingGroupForm__rightField
+        = f.text_field :TRIP, class: "SettingGroupForm__input", placeholder: "走行距離（TRIP）を入力してください。"
+    .SettingGroupForm__field
+      .SettingGroupForm__leftField
+        %label.SettingGroupForm__label 金額：
+      .SettingGroupForm__rightField
+        = f.text_field :cost, class: "SettingGroupForm__input", placeholder: "金額を入力してください。"
+    .SettingGroupForm__field
+      .SettingGroupForm__leftField
+        %label.SettingGroupForm__label 油種：
+      .SettingGroupForm__rightField
+        = f.collection_check_boxes :fueltype_ids, Fueltype.all, :id, :fuelname
+    .SettingGroupForm__field
+      .SettingGroupForm__leftField
+      .SettingGroupForm__rightField
+        = f.submit class: 'SettingGroupForm__button'
