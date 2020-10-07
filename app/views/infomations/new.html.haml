@@ -17,11 +17,11 @@
         %label.SettingGroupForm__label 給油量:
       .SettingGroupForm__rightField
         = f.text_field :refuel, class: 'SettingGroupForm__input', placeholder: '給油量を入力してください'
-    .SettingGroupForm__field
-      .SettingGroupForm__leftField
-        %label.SettingGroupForm__label 総走行距離（ODO）：
-      .SettingGroupForm__rightField
-        = f.text_field :ODO, class: "SettingGroupForm__input", placeholder: "総走行距離（ODO）を入力してください。"
+    -# .SettingGroupForm__field
+    -#   .SettingGroupForm__leftField
+    -#     %label.SettingGroupForm__label 総走行距離（ODO）：
+    -#   .SettingGroupForm__rightField
+    -#     = f.text_field :ODO, class: "SettingGroupForm__input", placeholder: "総走行距離（ODO）を入力してください。"
     .SettingGroupForm__field
       .SettingGroupForm__leftField
         %label.SettingGroupForm__label 走行距離（TRIP）：
@@ -36,7 +36,7 @@
       .SettingGroupForm__leftField
         %label.SettingGroupForm__label 油種：
       .SettingGroupForm__rightField
-        = f.collection_select :fueltype, Fueltype.all, :fuelname, :fuelname , include_blank: "選択して下さい"
+        = f.collection_select :fueltype, Fueltype.all, :id, :fuelname , include_blank: "選択して下さい"
     .SettingGroupForm__field
       .SettingGroupForm__leftField
       .SettingGroupForm__rightField
