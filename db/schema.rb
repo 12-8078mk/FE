@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_040918) do
+ActiveRecord::Schema.define(version: 2020_10_07_100257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2020_10_03_040918) do
     t.string "fuelname", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "infomation_fueltypes", force: :cascade do |t|
+    t.bigint "infomation_id"
+    t.bigint "fueltype_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fueltype_id"], name: "index_infomation_fueltypes_on_fueltype_id"
+    t.index ["infomation_id"], name: "index_infomation_fueltypes_on_infomation_id"
   end
 
   create_table "infomations", force: :cascade do |t|
@@ -63,6 +72,8 @@ ActiveRecord::Schema.define(version: 2020_10_03_040918) do
   end
 
   add_foreign_key "cars", "users"
+  add_foreign_key "infomation_fueltypes", "fueltypes"
+  add_foreign_key "infomation_fueltypes", "infomations"
   add_foreign_key "infomations", "cars"
   add_foreign_key "infomations", "users"
 end

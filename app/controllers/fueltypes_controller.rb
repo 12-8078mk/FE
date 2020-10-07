@@ -1,11 +1,11 @@
 class FueltypesController < ApplicationController
 
-  # def new
-  #   @fuelnames = Fueltype.all
-  # end
+  def new
+    @fuelname = Fueltype.new
+  end
 
   def create
-    @fuelname = Car.new(fuel_params)
+    @fuelname = Fueltype.new
     if @@fuelname.save
       redirect_to new_infomation_path, notice: '油種を登録しました'
     else
@@ -13,8 +13,5 @@ class FueltypesController < ApplicationController
     end
   end
 
-  private
-  def fuel_params
-    params.require(:fueltype).permit(:fuelname)
-  end
+  
 end

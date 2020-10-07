@@ -1,3 +1,3 @@
 class Fueltype < ApplicationRecord
-  has_many :infomation
+  belongs_to :infomation
 end

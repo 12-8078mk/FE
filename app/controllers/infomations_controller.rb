@@ -2,13 +2,12 @@ class InfomationsController < ApplicationController
   before_action :set_car
 
   def index
-    # @infomation = Infomation.new
-    # @infomations = @car.infomations.includes(:user)
+ 
   end
 
   def new
     @infomation = Infomation.new
-    # @infomations = @car.infomations.includes(:user)
+   
   end
 
   def create
@@ -32,16 +31,5 @@ class InfomationsController < ApplicationController
   def set_car
     @car = Car.find(params[:car_id])
   end
-end
 
-# refuel, null: false
-#       t.integer :ODO
-#       t.integer :TRIP
-#       t.integer :range, null: false
-#       t.integer :cost, null: false
-#       t.integer :FE
-#       t.integer :avrage_FE
-#       t.date :refuelday
-#       t.references :user, foreign_key: true
-#       t.references :car, foreign_key: true
-#       t.references :fueltype, foreign_key: true
+end
