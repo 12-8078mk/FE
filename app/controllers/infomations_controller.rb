@@ -11,7 +11,7 @@ class InfomationsController < ApplicationController
   end
 
   def create
-    @infomation = @car.infomations.new(infomation_params)
+    @infomation = @car.infomations.new(e_information)
     if @infomation.save
       redirect_to car_infomations_path(@car), notice: '入力が完了しました。'
     else
@@ -32,8 +32,7 @@ class InfomationsController < ApplicationController
     @car = Car.find(params[:car_id])
   end
 
-  # def FE
-  #   range = :TRIP
-  #   :FE = range / refuel
-  # end
+  def e_information
+    infomation_params.merge(@infomation.set_extra_information)
+  end
 end
