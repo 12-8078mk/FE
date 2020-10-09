@@ -16,9 +16,6 @@ class Infomation < ApplicationRecord
     odos = total_range + first_range
   end
   
-  def set_extra_information
-    rg = TRIP
-    {range: rg, FE: rg.fdiv(refuel)}
-  end
+ 
 
 end
