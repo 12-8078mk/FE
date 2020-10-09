@@ -1,16 +1,7 @@
 class Infomation < ApplicationRecord
   belongs_to :user
   belongs_to :car
-  has_many :fueltypes
-
-  # def range
-  #   range = TRIP
-  #   return range
-  # end
-
-  # def fe(range)
-  #   refuel / range
-  # end
+  # belongs_to :fueltype
 
   def total_refuel
     - current_user.infomations.each do |i|

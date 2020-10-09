@@ -36,7 +36,7 @@
       .SettingGroupForm__leftField
         %label.SettingGroupForm__label 油種：
       .SettingGroupForm__rightField
-        = f.collection_select :fueltype, Fueltype.all, :id, :fuelname , include_blank: "選択して下さい"
+        = f.collection_select :fueltype, Fueltype.all, :fuelname, :fuelname , include_blank: "選択して下さい"
     .SettingGroupForm__field
       .SettingGroupForm__leftField
       .SettingGroupForm__rightField

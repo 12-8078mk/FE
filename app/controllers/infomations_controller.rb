@@ -32,8 +32,8 @@ class InfomationsController < ApplicationController
     @car = Car.find(params[:car_id])
   end
 
-
-  # def extra_info
-  #   infomation_params.merge(@infomation.set_extra_infomation)
+  # def FE
+  #   range = :TRIP
+  #   :FE = range / refuel
   # end
 end

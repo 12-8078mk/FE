@@ -9,9 +9,9 @@ class CreateInfomations < ActiveRecord::Migration[6.0]
       t.integer :FE
       t.integer :avrage_FE
       t.date :refuelday
+      t.string :fueltype, null: false
       t.references :user, foreign_key: true
       t.references :car, foreign_key: true
-      t.references :fueltype, foreign_key: true
       t.timestamps
     end
   end
