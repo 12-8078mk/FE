@@ -3,21 +3,24 @@
     .maininfo--scroll__obj 車両名：
     .maininfo--scroll__name 
       = @car.car_name
-  .maininfo--scroll
-    .maininfo--scroll__day 給油日:
-  .maininfo--scroll
-    .maininfo--scroll__TRIP TRIP:
-  .maininfo--scroll
-    .maininfo--scroll__totalrange 総走行距離:
-  .maininfo--scroll
-    .maininfo--scroll__totalrefuel 総給油量:
-  .maininfo--scroll
-    .maininfo--scroll__totalFuelfee 総給油費:
-  .maininfo--scroll
-    .maininfo--scroll__avgFueleconomy 平均燃費:
-  .maininfo--scroll
-    .maininfo--scroll__dayFueleconomy 直近燃費:
-  .maininfo--scroll
-    .maininfo--scroll__maxFueleconomy 最高燃費:
-  .maininfo--scroll
-    .maininfo--scroll__minFueleconomy 最低燃費:
+  - @car.infomations.each do |inf|
+    .maininfo--scroll
+      .maininfo--scroll__obj 給油日:
+      .maininfo--scroll__day
+        = inf.refuelday
+    .maininfo--scroll
+      .maininfo--scroll__obj 走行距離(TRIP):
+      .maininfo--scroll__TRIP
+        = inf.trip
+    .maininfo--scroll
+      .maininfo--scroll__obj 給油量:
+      .maininfo--scroll__totalrefuel
+        = inf.refuel
+    .maininfo--scroll
+      .maininfo--scroll__obj 給油費:
+      .maininfo--scroll__totalFuelfee
+        = inf.cost
+    -# .maininfo--scroll
+    -#   .maininfo--scroll__obj
+    -#     = link_to edit_car_infomation_path
+    -#       編集
