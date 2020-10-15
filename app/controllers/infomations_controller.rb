@@ -39,7 +39,7 @@ class InfomationsController < ApplicationController
 
   def infomation_params
     # FE = range / refuel
-    params.require(:infomation).permit(:refuel, :cost, :refuelday, :trip, :fueltype).merge(user_id: current_user.id)
+    params.require(:infomation).permit(:refuel, :cost, :refuelday, :trip, :fueltype_id).merge(user_id: current_user.id)
   end
 
   def set_car

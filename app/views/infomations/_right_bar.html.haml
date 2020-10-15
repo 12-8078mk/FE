@@ -20,7 +20,8 @@
       .maininfo--scroll__obj 給油費:
       .maininfo--scroll__totalFuelfee
         = inf.cost
-    -# .maininfo--scroll
-    -#   .maininfo--scroll__obj
-    -#     = link_to edit_car_infomation_path
-    -#       編集
+    .maininfo--scroll
+      .maininfo--scroll__obj 油種：
+      .maininfo--scroll__Fueltype
+        = Fueltype.find(inf.fueltype_id).name
+        

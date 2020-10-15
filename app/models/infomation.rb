@@ -1,6 +1,8 @@
 class Infomation < ApplicationRecord
   belongs_to :user
   belongs_to :car
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :fueltype
   # belongs_to :fueltype
 
   def total_refuel

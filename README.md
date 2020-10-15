@@ -42,13 +42,10 @@
 ### Association
 - belongs_to :user
 - belongs_to :car
-- belongs_to :fueltype
+- belongs_to_active_hash :fueltype
 
-## fueltypesテーブル
+## fueltypesテーブル[active_hash]
 
 |Column|Type|Options|
 |------|----|-------|
-|fuelname|string|null: false|
-
-### Association
-- has_many :infomation
+|name|string|
