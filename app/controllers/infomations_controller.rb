@@ -8,7 +8,6 @@ class InfomationsController < ApplicationController
 
   def new
     @infomation = Infomation.new
-   
   end
 
   def create
@@ -16,20 +15,18 @@ class InfomationsController < ApplicationController
     if @infomation.save
       redirect_to car_infomations_path(@car), notice: '入力が完了しました。'
     else
-      # @infomations = @car.infomations.includes(:user)
-      # flash.now[:alert] = 'メッセージを入力してください。'
       render :new
     end
   end
 
   def edit
-    @infomation = @car.Infomation.find(params[:id])
+    @infomation = Infomation.find(params[:id])
   end
 
   def update
-    @infomation = @car.Infomation.find(params[:id])
+    @infomation = Infomation.find(params[:id])
     if @infomation.update(infomation_params)
-      redirect_to root_path, notice: '車両を更新しました'
+      redirect_to car_infomations_path(@car), notice: '車両を更新しました'
     else
       render :edit
     end
@@ -38,7 +35,6 @@ class InfomationsController < ApplicationController
   private
 
   def infomation_params
-    # FE = range / refuel
     params.require(:infomation).permit(:refuel, :cost, :refuelday, :trip, :fueltype_id).merge(user_id: current_user.id)
   end
 

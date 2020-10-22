@@ -3,7 +3,7 @@ class CreateInfomations < ActiveRecord::Migration[6.0]
     create_table :infomations do |t|
       t.float :refuel, null: false
       t.float :trip, null: false
-      t.integer :cost, null: false
+      t.float :cost, null: false
       t.date :refuelday
       t.integer :fueltype_id, null: false
       t.references :user, foreign_key: true

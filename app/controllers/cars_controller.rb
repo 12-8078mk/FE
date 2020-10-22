@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  
+
   def index
   end
   
@@ -27,6 +27,10 @@ class CarsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    @car = Car.find(params[:id])
   end
 
   private

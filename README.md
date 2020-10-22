@@ -16,7 +16,7 @@
 |------|----|-------|
 |car_name|string|null: false|
 |image|string|
-|first_range|integer|null: false|
+|first_range|float|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -27,13 +27,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|refuel|integer|null: false|
-|ODO|integer|
-|TRIP|integer|
-|range|integer|null: false|
+|refuel|float|null: false|
+|trip|float|null: false|
 |cost|integer|null: false|
-|FE|integer|null: false|
-|avrage_FE|integer|
 |refuelday|date|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |car_id|integer|null: false, foreign_key: true|

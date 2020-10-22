@@ -1,0 +1,42 @@
+= render 'infomations/top_bar'
+.wrapper2
+  = render 'infomations/left_bar'
+  .maininfo
+    .maininfo--scroll
+      .maininfo--scroll__objtop 車両名：
+      .maininfo--scroll__name 
+        = @car.car_name
+    - @car.infomations.order(:id).each do |inf|
+      .maininfo--scroll
+        .maininfo--scroll__obj 給油日:
+        .maininfo--scroll__day
+          = inf.refuelday
+      .maininfo--scroll
+        .maininfo--scroll__obj 走行距離(TRIP):
+        .maininfo--scroll__TRIP
+          = inf.trip
+      .maininfo--scroll
+        .maininfo--scroll__obj 給油量:
+        .maininfo--scroll__totalrefuel
+          = inf.refuel
+      .maininfo--scroll
+        .maininfo--scroll__obj 給油費:
+        .maininfo--scroll__totalFuelfee
+          = inf.cost.round(0)
+      .maininfo--scroll
+        .maininfo--scroll__obj 油種：
+        .maininfo--scroll__Fueltype
+          = Fueltype.find(inf.fueltype_id).name
+      - refuel = inf.refuel
+      - range = inf.trip
+      - cost = inf.cost
+      .maininfo--scroll
+        .maininfo--scroll__obj
+          - average_FE = range / refuel
+          %p
+            燃費:#{(average_FE).round(1)} km/L
+      .maininfo--scroll.final
+        .maininfo--scroll__obj
+          - average_cost = cost / refuel
+          %p
+            燃料単価:#{(average_cost).round(0)} 円/L

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_035658) do
   create_table "infomations", force: :cascade do |t|
     t.float "refuel", null: false
     t.float "trip", null: false
-    t.integer "cost", null: false
+    t.float "cost", null: false
     t.date "refuelday"
     t.integer "fueltype_id", null: false
     t.bigint "user_id"
