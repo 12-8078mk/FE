@@ -37,22 +37,34 @@
 
 .wrapper {
   display: flex;
-  height: calc( 100vh - 100px - 100px);
+  height: calc( 100vh - 200px);
   background-color: rgb(27, 221, 108);
   color: #000;
   font-size: 30px;
 }
+
+.wrapper2 {
+  display: flex;
+  height: calc( 100vh - 100px);
+  background-color: rgb(27, 221, 108);
+  color: #000;
+  font-size: 30px;
+}
+
 .main{
   padding: 20px;
   width: 400px;
   background-color: rgb(27, 221, 108);
+  overflow: scroll;
 }
 
 .menu{
   font-size: 20px;
-  color: #000;
   padding: 40px;
-  text-decoration: none;
+  &__name{
+    color: #000;
+    text-decoration: none;
+  }
   &__foto{
     width: 200px;
     height: 200px;
@@ -68,10 +80,20 @@
     margin-top:20px;
     padding: 0 40px;
     display: flex;
-    &__obj{
-      
+    &__objtop{
+      font-size: 40px;
+      font-weight: bold;
+    }
+    &__name{
+      font-size: 40px;
+      font-weight: bold;
     }
   }
+}
+
+.final{
+  padding-bottom: 40px;
+  border-bottom: 2px solid black ;
 }
 
 .footer {

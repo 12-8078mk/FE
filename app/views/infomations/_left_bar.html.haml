@@ -1,11 +1,21 @@
 .main
   - current_user.cars.each do |car|
     .menu
-      = link_to car_infomations_path(car.id) do
-        .menu__name
-          = car.car_name
-        = image_tag car.image.url, class: 'menu__foto' if car.image.present?
-        .menu__firstrange
-          = car.first_range
-        = link_to edit_car_path(car.id) do
-          編集
+      - if car.infomations.empty?
+        = link_to new_car_infomation_path(car.id) ,{class:"menu__name"} do
+          .menu__f
+            = car.car_name
+          = image_tag car.image.url, class: 'menu__foto' if car.image.present?
+          .menu__firstrange
+            = car.first_range
+          = link_to edit_car_path(car.id) do
+            編集
+      - else
+        = link_to car_infomations_path(car.id),{class:"menu__name"} do
+          .menu__f
+            = car.car_name
+          = image_tag car.image.url, class: 'menu__foto' if car.image.present?
+          .menu__firstrange
+            = car.first_range
+          = link_to edit_car_path(car.id) do
+            編集

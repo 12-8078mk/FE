@@ -1,2 +1,2 @@
-class Fueltype < ApplicationRecord
+class Fueltype < ActiveHash::Base
 end

@@ -1,23 +1,47 @@
+- range = 0
+- sum_refuel = 0
+- sum_cost = 0
+- @infomations.each do |inf|
+  - range += inf.trip
+  - sum_refuel += inf.refuel
+  - sum_cost += inf.cost
+- sum_range = range + @car.first_range
+- average_FE = range / sum_refuel
+- average_cost = sum_cost / sum_refuel
 .maininfo
   .maininfo--scroll
-    .maininfo--scroll__obj 車両名：
+    .maininfo--scroll__objtop 車両名：
     .maininfo--scroll__name 
       = @car.car_name
   .maininfo--scroll
-    .maininfo--scroll__day 給油日:
+    .maininfo--scroll__obj 給油日:
+    .maininfo--scroll__day
+      = @infomations.last.refuelday
   .maininfo--scroll
-    .maininfo--scroll__TRIP TRIP:
+    .maininfo--scroll__obj 走行距離(TRIP):
+    .maininfo--scroll__TRIP
+      = @infomations.last.trip
   .maininfo--scroll
-    .maininfo--scroll__totalrange 総走行距離:
+    .maininfo--scroll__obj 給油量:
+    .maininfo--scroll__totalrefuel
+      = @infomations.last.refuel
   .maininfo--scroll
-    .maininfo--scroll__totalrefuel 総給油量:
+    .maininfo--scroll__obj 給油費:
+    .maininfo--scroll__totalFuelfee
+      = @infomations.last.cost.round(0)
   .maininfo--scroll
-    .maininfo--scroll__totalFuelfee 総給油費:
+    .maininfo--scroll__obj 油種：
+    .maininfo--scroll__Fueltype
+      = Fueltype.find(@infomations.last.fueltype_id).name  
   .maininfo--scroll
-    .maininfo--scroll__avgFueleconomy 平均燃費:
+    .maininfo--scroll__obj
+      %p
+        総走行距離:#{sum_range.round(1)} km
   .maininfo--scroll
-    .maininfo--scroll__dayFueleconomy 直近燃費:
+    .maininfo--scroll__obj
+      %p
+        平均燃費:#{(average_FE).round(1)} km/L
   .maininfo--scroll
-    .maininfo--scroll__maxFueleconomy 最高燃費:
-  .maininfo--scroll
-    .maininfo--scroll__minFueleconomy 最低燃費:
+    .maininfo--scroll__obj
+      %p
+        平均単価:#{(average_cost).round(0)} 円/L

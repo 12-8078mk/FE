@@ -1,24 +1,20 @@
 class Infomation < ApplicationRecord
   belongs_to :user
   belongs_to :car
-  # belongs_to :fueltype
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :fueltype
 
   def total_refuel
-    - current_user.infomations.each do |i|
-      total_refuel += i.refuel
-    end
+    Infomation.all.sum(:refuel)
+    # .include(car.id)
   end
 
   def odo
-    -current_user.infomations.each do |u|
-      total_range += u.TRIP
+    - @car.infomations.each do |u|
+      total_range += u.trip
     end
     odos = total_range + first_range
+    return odos
   end
   
-  def set_extra_information
-    rg = TRIP
-    {range: rg, FE: rg.fdiv(refuel)}
-  end
-
 end
