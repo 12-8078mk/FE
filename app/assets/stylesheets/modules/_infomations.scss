@@ -78,17 +78,33 @@
   overflow: scroll;
   &--scroll{
     margin-top:20px;
-    padding: 0 40px;
     display: flex;
-    &__objtop{
-      font-size: 40px;
-      font-weight: bold;
+    justify-content: space-between;
+    &__obj{
+      width: 40%;
+      padding-right: 20px;
+      padding-left: 20px;
+      box-sizing: border-box;
+      text-align: right;
     }
     &__name{
       font-size: 40px;
       font-weight: bold;
+      width: 60%;
+    }
+    &__inf{
+      width: 60%;
+    }
+    &__edit{
+      width: 100%;
+      text-align: center;
     }
   }
+}
+
+.topn{
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .final{

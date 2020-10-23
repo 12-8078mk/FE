@@ -4,6 +4,7 @@ class InfomationsController < ApplicationController
   def index
     @infomation = Infomation.new
     @infomations = @car.infomations.includes(:user)
+    # @infomation1 = @infomations.order("refuelday desc").limit(1)
   end
 
   def new
@@ -15,7 +16,7 @@ class InfomationsController < ApplicationController
     if @infomation.save
       redirect_to car_infomations_path(@car), notice: '入力が完了しました。'
     else
-      render :new
+      render :new, alert: "登録に失敗しました"
     end
   end
 
@@ -26,9 +27,9 @@ class InfomationsController < ApplicationController
   def update
     @infomation = Infomation.find(params[:id])
     if @infomation.update(infomation_params)
-      redirect_to car_infomations_path(@car), notice: '車両を更新しました'
+      redirect_to car_path(@car), notice: 'データを更新しました'
     else
-      render :edit
+      render :edit, alert: "更新に失敗しました"
     end
   end
 
