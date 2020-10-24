@@ -1,5 +1,5 @@
 = render 'infomations/top_bar'
-.wrapper2
+.wrapper
   = render 'infomations/left_bar'
   .maininfo
     .maininfo--scroll
@@ -46,3 +46,4 @@
       .maininfo--scroll.final
         = link_to edit_car_infomation_path(@car,inf) ,{class:"maininfo--scroll__edit"} do
           データ編集
+= render 'infomations/foot_bar'

@@ -1,6 +1,8 @@
 %body
   = render 'top_bar'
   .wrapper
-    = render "left_bar"    
-    = render "right_bar"    
+    = render "left_bar"
+    = render "right_bar"
+  = link_to car_path(@car) ,class: "btn btn-rireki" do
+    %span.btn--text 履歴
   = render 'foot_bar'

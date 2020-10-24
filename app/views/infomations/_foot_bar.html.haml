@@ -1,10 +1,4 @@
-.footer
-  .btn
-    = link_to car_path(@car) ,class: "btn--link rireki" do
-      履歴
-  .btn
-    = link_to "#" ,class: "btn--link graf" do
-      グラフ
-  .btn
-    = link_to new_car_infomation_path ,class: "btn--link input" do
-      入力
+= link_to "#" ,class: "btn btn-graph" do
+  %span.btn--text グラフ
+= link_to new_car_infomation_path(@car) ,class: "btn btn-input" do
+  %span.btn--text 入力

@@ -44,6 +44,14 @@ li {
   &__rightField {
     width: 70%;
   }
+  &__rightFieldbox {
+    width: 70%;
+    position: relative;
+    &--p{
+      position: absolute;
+      top: 25%;
+    }
+  }
   &__label {
     display: block;
     line-height: 50px;
