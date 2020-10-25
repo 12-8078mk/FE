@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_035658) do
     t.float "refuel", null: false
     t.float "trip", null: false
     t.float "cost", null: false
-    t.date "refuelday"
+    t.date "refuelday", null: false
     t.integer "fueltype_id", null: false
     t.bigint "user_id"
     t.bigint "car_id"
