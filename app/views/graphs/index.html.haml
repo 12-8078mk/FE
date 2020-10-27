@@ -1,3 +1,7 @@
-%h1 Graph#index
-%p Find me in app/views/graph/index.html.haml
-= line_chart @data, width: "800px", height: "500px"
+= render 'infomations/top_bar'
+.wrapper
+  = line_chart @cost_data, width: "800px", height: "500px"
+  = line_chart @avcost_data, width: "800px", height: "500px"
+= link_to car_path(@car) ,class: "btn btn-graph" do
+  %span.btn--text 履歴
+= render 'infomations/foot_bar'

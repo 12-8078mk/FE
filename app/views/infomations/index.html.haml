@@ -5,4 +5,6 @@
     = render "right_bar"
   = link_to car_path(@car) ,class: "btn btn-rireki" do
     %span.btn--text 履歴
+  = link_to car_graphs_path(@car) ,class: "btn btn-graph" do
+    %span.btn--text グラフ
   = render 'foot_bar'

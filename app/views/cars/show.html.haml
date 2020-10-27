@@ -36,6 +36,7 @@
       .maininfo--scroll
         .maininfo--scroll__obj 燃費:
         .maininfo--scroll__inf
+          -# = inf.fuel_economy
           - average_FE = range / refuel
           #{average_FE.round(1)} km/L
       .maininfo--scroll
@@ -46,4 +47,6 @@
       .maininfo--scroll.final
         = link_to edit_car_infomation_path(@car,inf) ,{class:"maininfo--scroll__edit"} do
           データ編集
+= link_to car_graphs_path(@car) ,class: "btn btn-graph" do
+  %span.btn--text グラフ
 = render 'infomations/foot_bar'
