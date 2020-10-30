@@ -7,15 +7,23 @@
             = car.car_name
           = image_tag car.image.url, class: 'menu__foto' if car.image.present?
           .menu__firstrange
+            初期走行距離：
             = car.first_range
-          = link_to edit_car_path(car.id) do
-            編集
+            km
+          = link_to edit_car_path(car.id),{class:"menu__name"} do
+            車両情報編集
+        = link_to car_path(car.id), method: :delete ,class:"menu__name" do
+          車両情報削除
       - else
         = link_to car_infomations_path(car.id),{class:"menu__name"} do
           .menu__f
             = car.car_name
           = image_tag car.image.url, class: 'menu__foto' if car.image.present?
           .menu__firstrange
+            初期走行距離：
             = car.first_range
-          = link_to edit_car_path(car.id) do
-            編集
+            km
+          = link_to edit_car_path(car.id),{class:"menu__name"} do
+            車両情報編集
+        = link_to car_path(car.id), method: :delete ,class:"menu__name" do
+          車両情報削除

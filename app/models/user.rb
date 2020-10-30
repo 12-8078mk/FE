@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
  
-  has_many :infomations
-  has_many :cars
+  has_many :infomations, foreign_key: :user_id, dependent: :destroy
+  has_many :cars, foreign_key: :user_id, dependent: :destroy
   # validates :name, presence: true, uniqueness: true
   
 end

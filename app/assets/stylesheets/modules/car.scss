@@ -26,7 +26,7 @@ li {
   width: 980px;
   margin: 60px auto;
   padding: 40px;
-  background-color: #fff;
+  background-color: chartreuse;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
@@ -43,6 +43,14 @@ li {
   }
   &__rightField {
     width: 70%;
+  }
+  &__rightFieldbox {
+    width: 70%;
+    position: relative;
+    &--p{
+      position: absolute;
+      top: 25%;
+    }
   }
   &__label {
     display: block;

@@ -1,42 +1,52 @@
 = render 'infomations/top_bar'
-.wrapper2
+.wrapper
   = render 'infomations/left_bar'
   .maininfo
     .maininfo--scroll
-      .maininfo--scroll__objtop 車両名：
+      .maininfo--scroll__obj.topn 車両名:
       .maininfo--scroll__name 
         = @car.car_name
-    - @car.infomations.order(:id).each do |inf|
+    - @car.infomations.order("refuelday DESC").each do |inf|
       .maininfo--scroll
         .maininfo--scroll__obj 給油日:
-        .maininfo--scroll__day
-          = inf.refuelday
+        .maininfo--scroll__inf
+          = inf.refuelday.strftime("%Y年%m月%d日")
       .maininfo--scroll
         .maininfo--scroll__obj 走行距離(TRIP):
-        .maininfo--scroll__TRIP
+        .maininfo--scroll__inf
           = inf.trip
+          km
       .maininfo--scroll
         .maininfo--scroll__obj 給油量:
-        .maininfo--scroll__totalrefuel
+        .maininfo--scroll__inf
           = inf.refuel
+          L
       .maininfo--scroll
         .maininfo--scroll__obj 給油費:
-        .maininfo--scroll__totalFuelfee
+        .maininfo--scroll__inf
           = inf.cost.round(0)
+          円
       .maininfo--scroll
-        .maininfo--scroll__obj 油種：
-        .maininfo--scroll__Fueltype
+        .maininfo--scroll__obj 油種:
+        .maininfo--scroll__inf
           = Fueltype.find(inf.fueltype_id).name
       - refuel = inf.refuel
       - range = inf.trip
       - cost = inf.cost
       .maininfo--scroll
-        .maininfo--scroll__obj
+        .maininfo--scroll__obj 燃費:
+        .maininfo--scroll__inf
+          -# = inf.fuel_economy
           - average_FE = range / refuel
-          %p
-            燃費:#{(average_FE).round(1)} km/L
-      .maininfo--scroll.final
-        .maininfo--scroll__obj
+          #{average_FE.round(1)} km/L
+      .maininfo--scroll
+        .maininfo--scroll__obj 燃料単価:
+        .maininfo--scroll__inf
           - average_cost = cost / refuel
-          %p
-            燃料単価:#{(average_cost).round(0)} 円/L
+          #{average_cost.round(0)} 円/L
+      .maininfo--scroll.final
+        = link_to edit_car_infomation_path(@car,inf) ,{class:"maininfo--scroll__edit"} do
+          データ編集
+= link_to car_graphs_path(@car) ,class: "btn btn-graph" do
+  %span.btn--text グラフ
+= render 'infomations/foot_bar'

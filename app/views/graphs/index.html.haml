@@ -1,0 +1,11 @@
+= render 'infomations/top_bar'
+.graph
+  .graph-avrage.graph-avragefueleconomy
+    燃費の推移
+    = line_chart @fe_data, width: "1200px", height: "500px"
+  .graph-avrage.graph-avragecost
+    単価の推移
+    = line_chart @avcost_data, width: "1200px", height: "500px"
+= link_to car_path(@car) ,class: "btn btn-graph" do
+  %span.btn--text 履歴
+= render 'infomations/foot_bar'

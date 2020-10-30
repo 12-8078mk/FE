@@ -1,20 +1,13 @@
 class Infomation < ApplicationRecord
-  belongs_to :user
-  belongs_to :car
+  belongs_to :user, optional: true
+  belongs_to :car, optional: true
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :fueltype
 
-  def total_refuel
-    Infomation.all.sum(:refuel)
-    # .include(car.id)
-  end
+  validates :refuel, :cost, :refuelday, :trip, :fueltype_id, presence: true
 
-  def odo
-    - @car.infomations.each do |u|
-      total_range += u.trip
-    end
-    odos = total_range + first_range
-    return odos
+  before_save :set_fuel_economy
+  def set_fuel_economy
+    fuel_economy = fuel_economy = trip / refuel if refuel > 0
   end
-  
 end

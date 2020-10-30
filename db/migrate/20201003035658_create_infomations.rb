@@ -4,8 +4,9 @@ class CreateInfomations < ActiveRecord::Migration[6.0]
       t.float :refuel, null: false
       t.float :trip, null: false
       t.float :cost, null: false
-      t.date :refuelday
+      t.date :refuelday, null: false
       t.integer :fueltype_id, null: false
+      t.float :fuel_economy
       t.references :user, foreign_key: true
       t.references :car, foreign_key: true
       t.timestamps

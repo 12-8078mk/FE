@@ -10,38 +10,41 @@
 - average_cost = sum_cost / sum_refuel
 .maininfo
   .maininfo--scroll
-    .maininfo--scroll__objtop 車両名：
+    .maininfo--scroll__obj.topn 車両名:
     .maininfo--scroll__name 
       = @car.car_name
   .maininfo--scroll
     .maininfo--scroll__obj 給油日:
-    .maininfo--scroll__day
-      = @infomations.last.refuelday
+    .maininfo--scroll__inf
+      = @infomations.last.refuelday.strftime("%Y年%m月%d日")
   .maininfo--scroll
     .maininfo--scroll__obj 走行距離(TRIP):
-    .maininfo--scroll__TRIP
+    .maininfo--scroll__inf
       = @infomations.last.trip
+      km
   .maininfo--scroll
     .maininfo--scroll__obj 給油量:
-    .maininfo--scroll__totalrefuel
+    .maininfo--scroll__inf
       = @infomations.last.refuel
+      L
   .maininfo--scroll
     .maininfo--scroll__obj 給油費:
-    .maininfo--scroll__totalFuelfee
+    .maininfo--scroll__inf
       = @infomations.last.cost.round(0)
+      円
   .maininfo--scroll
-    .maininfo--scroll__obj 油種：
-    .maininfo--scroll__Fueltype
+    .maininfo--scroll__obj 油種:
+    .maininfo--scroll__inf
       = Fueltype.find(@infomations.last.fueltype_id).name  
   .maininfo--scroll
-    .maininfo--scroll__obj
-      %p
-        総走行距離:#{sum_range.round(1)} km
+    .maininfo--scroll__obj 総走行距離:
+    .maininfo--scroll__inf
+      #{sum_range.round(1)} km
   .maininfo--scroll
-    .maininfo--scroll__obj
-      %p
-        平均燃費:#{(average_FE).round(1)} km/L
+    .maininfo--scroll__obj 平均燃費:
+    .maininfo--scroll__inf
+      #{average_FE.round(1)} km/L
   .maininfo--scroll
-    .maininfo--scroll__obj
-      %p
-        平均単価:#{(average_cost).round(0)} 円/L
+    .maininfo--scroll__obj 平均単価:
+    .maininfo--scroll__inf
+      #{average_cost.round(0)} 円/L

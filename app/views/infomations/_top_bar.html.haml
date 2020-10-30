@@ -1,5 +1,7 @@
 .top
-  .top-app_name 燃費計算
+  .top-app
+    = link_to root_path ,class: "top-app_name" do
+      燃費計算
   .top-user
     .top-user_name
       = current_user.name
