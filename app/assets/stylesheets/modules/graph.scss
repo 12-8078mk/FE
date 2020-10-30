@@ -1,0 +1,17 @@
+.graph{
+  height: calc( 100vh - 100px);
+  background-color: rgb(169, 230, 194);
+  color: #000;
+  font-size: 30px;
+  overflow-y: scroll;
+  &-avrage{
+    padding: 20px 20px;
+    text-align: center;
+  }
+  &-avragefueleconomy{
+    
+  }
+  &-avragecost{
+    
+  }
+}

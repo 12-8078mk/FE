@@ -11,8 +11,15 @@
   padding: 0 30px;
   align-items: center;
   justify-content: space-between;
-  &-app_name {
+  &-app {
     font-size: 40px;
+    &_name{
+      text-decoration: none;
+      color: #000;
+    }
+    &_name:hover{
+      color: rgb(240, 190, 26);
+    }
   }
   &-user {
     font-size: 30px;
