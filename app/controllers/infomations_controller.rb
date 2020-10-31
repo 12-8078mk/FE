@@ -4,7 +4,6 @@ class InfomationsController < ApplicationController
   def index
     @infomation = Infomation.new
     @infomations = @car.infomations.includes(:user)
-    # @infomation1 = @infomations.order("refuelday desc").limit(1)
   end
 
   def new
@@ -13,7 +12,6 @@ class InfomationsController < ApplicationController
 
   def create
     @infomation = @car.infomations.new(infomation_params)
-    # @information.fuel_economy = @information.trip / @information.refuel if @information.refuel > 0
     if @infomation.save
       redirect_to car_infomations_path(@car), notice: '入力が完了しました。'
     else
