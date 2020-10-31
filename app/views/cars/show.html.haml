@@ -45,8 +45,12 @@
           - average_cost = cost / refuel
           #{average_cost.round(0)} 円/L
       .maininfo--scroll.final
-        = link_to edit_car_infomation_path(@car,inf) ,{class:"maininfo--scroll__edit"} do
-          データ編集
+        .maininfo--scroll__obj
+          = link_to edit_car_infomation_path(@car,inf) ,{class:"maininfo--scroll__edit hover"} do
+            ・データ編集
+        .maininfo--scroll__inf
+          = link_to car_infomation_path(@car,inf), method: :delete ,class:"maininfo--scroll__destroy hover" do
+            ・データ削除
 = link_to car_graphs_path(@car) ,class: "btn btn-graph" do
   %span.btn--text グラフ
 = render 'infomations/foot_bar'

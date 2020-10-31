@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "cars#index"
   resources :users, only: [:edit, :update]
   resources :cars do
-    resources :infomations, only: [:index, :new, :create, :edit, :update]
+    resources :infomations, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :graphs, only: [:index]
   end
 end

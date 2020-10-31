@@ -32,6 +32,17 @@ class InfomationsController < ApplicationController
     end
   end
 
+  def destroy
+    infomation = @car.infomations.find(params[:id])
+    if infomation.user_id == current_user.id
+      if infomation.destroy
+        redirect_to car_infomations_path(@car), notice: '削除しました'
+      else
+        redirect_to car_infomations_path(@car), alert: "削除に失敗しました"
+      end
+    end
+  end
+
   private
 
   def infomation_params
