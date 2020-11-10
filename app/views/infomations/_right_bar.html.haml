@@ -48,3 +48,8 @@
     .maininfo--scroll__obj 平均単価:
     .maininfo--scroll__inf
       #{average_cost.round(0)} 円/L
+  .maininfo--scroll
+    .maininfo--scroll__obj 給油費:
+    .maininfo--scroll__inf
+      = @infomations.last.fuel_economy
+      円
