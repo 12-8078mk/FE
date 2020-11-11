@@ -41,10 +41,20 @@
     .maininfo--scroll__inf
       #{sum_range.round(1)} km
   .maininfo--scroll
+    .maininfo--scroll__obj 平均単価:
+    .maininfo--scroll__inf
+      #{average_cost.round(0)} 円/L
+  .maininfo--scroll
     .maininfo--scroll__obj 平均燃費:
     .maininfo--scroll__inf
       #{average_FE.round(1)} km/L
   .maininfo--scroll
-    .maininfo--scroll__obj 平均単価:
+    .maininfo--scroll__obj  最高燃費:
     .maininfo--scroll__inf
-      #{average_cost.round(0)} 円/L
+      = @fuel_economy.max.round(1)
+      km/L
+  .maininfo--scroll
+    .maininfo--scroll__obj  最低燃費:
+    .maininfo--scroll__inf
+      = @fuel_economy.min.round(1)
+      km/L

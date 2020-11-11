@@ -4,7 +4,11 @@ class InfomationsController < ApplicationController
   def index
     @infomation = Infomation.new
     @infomations = @car.infomations.includes(:user)
-    # @infomation1 = @infomations.order("refuelday desc").limit(1)
+    @fuel_economy = []
+    @infomations.each do |inf|
+      fuel_economy = inf.trip / inf.refuel
+      @fuel_economy << fuel_economy
+    end
   end
 
   def new
@@ -13,7 +17,6 @@ class InfomationsController < ApplicationController
 
   def create
     @infomation = @car.infomations.new(infomation_params)
-    # @information.fuel_economy = @information.trip / @information.refuel if @information.refuel > 0
     if @infomation.save
       redirect_to car_infomations_path(@car), notice: '入力が完了しました。'
     else
@@ -31,6 +34,17 @@ class InfomationsController < ApplicationController
       redirect_to car_path(@car), notice: 'データを更新しました'
     else
       render :edit, alert: "更新に失敗しました"
+    end
+  end
+
+  def destroy
+    infomation = @car.infomations.find(params[:id])
+    if infomation.user_id == current_user.id
+      if infomation.destroy
+        redirect_to car_infomations_path(@car), notice: '削除しました'
+      else
+        redirect_to car_infomations_path(@car), alert: "削除に失敗しました"
+      end
     end
   end
 

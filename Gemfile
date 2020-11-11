@@ -73,3 +73,5 @@ gem 'mini_magick'
 gem 'active_hash'
 
 gem "chartkick"
+
+gem 'jquery-rails'
