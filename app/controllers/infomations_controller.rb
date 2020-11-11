@@ -4,6 +4,11 @@ class InfomationsController < ApplicationController
   def index
     @infomation = Infomation.new
     @infomations = @car.infomations.includes(:user)
+    @fuel_economy = []
+    @infomations.each do |inf|
+      fuel_economy = inf.trip / inf.refuel
+      @fuel_economy << fuel_economy
+    end
   end
 
   def new
